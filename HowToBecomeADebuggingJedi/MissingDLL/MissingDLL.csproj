@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{134134EE-D135-4720-B7DE-F5CB81446515}</ProjectGuid>
+    <ProjectGuid>{8B6E1DC1-F90D-4D93-8185-ECB509F21847}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HowToBecomeADebuggingJedi</RootNamespace>
-    <AssemblyName>HowToBecomeADebuggingJedi</AssemblyName>
+    <RootNamespace>MissingDLL</RootNamespace>
+    <AssemblyName>MissingDLL</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GalaxyFarFarAway\GalaxyFarFarAway.csproj">
-      <Project>{0ae9b43c-c2ff-4b57-90b8-9433926dad44}</Project>
-      <Name>GalaxyFarFarAway</Name>
+    <ProjectReference Include="..\DebuggerDisplay\DebuggerDisplay.csproj">
+      <Project>{22a3919c-4957-4d77-9209-4556e9494e0d}</Project>
+      <Name>DebuggerDisplay</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

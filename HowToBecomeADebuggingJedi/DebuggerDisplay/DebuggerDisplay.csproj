@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{134134EE-D135-4720-B7DE-F5CB81446515}</ProjectGuid>
+    <ProjectGuid>{22A3919C-4957-4D77-9209-4556E9494E0D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HowToBecomeADebuggingJedi</RootNamespace>
-    <AssemblyName>HowToBecomeADebuggingJedi</AssemblyName>
+    <RootNamespace>DebuggerDisplay</RootNamespace>
+    <AssemblyName>DebuggerDisplay</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

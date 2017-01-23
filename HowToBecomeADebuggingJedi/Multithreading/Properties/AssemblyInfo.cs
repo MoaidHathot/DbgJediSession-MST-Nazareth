@@ -1,17 +1,15 @@
-﻿using System.Diagnostics;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using HowToBecomeADebuggingJedi;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HowToBecomeADebuggingJedi")]
+[assembly: AssemblyTitle("Multithreading")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HowToBecomeADebuggingJedi")]
+[assembly: AssemblyProduct("Multithreading")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,7 +20,7 @@ using HowToBecomeADebuggingJedi;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("134134ee-d135-4720-b7de-f5cb81446515")]
+[assembly: Guid("cff7d037-032c-4cf1-9ca0-c9c95e31fc89")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -36,5 +34,3 @@ using HowToBecomeADebuggingJedi;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-//[assembly: DebuggerDisplay("with {MidiChlorians} MidiChlorians and {Weapon}", Target = typeof(GalaxyFarFarAway.IForceUser))]
