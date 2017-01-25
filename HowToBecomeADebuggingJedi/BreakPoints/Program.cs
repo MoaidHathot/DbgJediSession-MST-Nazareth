@@ -38,5 +38,14 @@ namespace BreakPoints
             await Task.Delay(TimeSpan.FromSeconds(1));
             Debug.WriteLine($"Finished training {user}");
         }
+
+        [Conditional("DEBUG")]
+        static void BreakPoint(bool condition = true)
+        {
+            if (condition)
+            {
+                Debugger.Break();
+            }
+        }
     }
 }
