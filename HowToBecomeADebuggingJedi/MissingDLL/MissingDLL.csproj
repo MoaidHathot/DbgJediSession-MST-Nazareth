@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +55,10 @@
     <ProjectReference Include="..\DebuggerDisplay\DebuggerDisplay.csproj">
       <Project>{22a3919c-4957-4d77-9209-4556e9494e0d}</Project>
       <Name>DebuggerDisplay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GalaxyFarFarAway\GalaxyFarFarAway.csproj">
+      <Project>{0AE9B43C-C2FF-4B57-90B8-9433926DAD44}</Project>
+      <Name>GalaxyFarFarAway</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
