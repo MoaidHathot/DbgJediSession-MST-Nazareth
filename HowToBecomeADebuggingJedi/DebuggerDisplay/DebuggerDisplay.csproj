@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -67,6 +67,17 @@
     <Resource Include="Images\RedCrossgaurdLightsaber.png" />
     <Resource Include="Images\RedDoubleLightsaber.png" />
     <Resource Include="Images\redLightsaber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DarthMaul.jpg" />
+    <Resource Include="Images\DarthVader.png" />
+    <Resource Include="Images\KyloRen.jpg" />
+    <Resource Include="Images\LukeSkywalker.jpg" />
+    <Resource Include="Images\MaceWindu.jpg" />
+    <Resource Include="Images\ObiWan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Yoda.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,6 +15,7 @@ namespace GalaxyFarFarAway
         CrossgaurdLightsaber
     }
 
+    [Serializable]
     [DebuggerDisplay("{Color} {LightsaberType}", Name = "{LightsaberType}")]
     public class ForceUserWeapon
     {
@@ -34,6 +35,7 @@ namespace GalaxyFarFarAway
         ForceUserWeapon Weapon { get; }
     }
 
+    [Serializable]
     [DebuggerDisplay("{Name}")]
     public class Human
     {
@@ -47,6 +49,7 @@ namespace GalaxyFarFarAway
         //public override string ToString() => Name;
     }
 
+    [Serializable]
     [DebuggerDisplay("Jedi {Name} with {MidiChlorians} MidiChlorians fights with {Weapon.Color} {Weapon.LightsaberType}")]
     public class JediKnight : Human, IForceUser
     {
@@ -61,6 +64,7 @@ namespace GalaxyFarFarAway
         }
     }
 
+    [Serializable]
     [DebuggerDisplay("Sith Lord {Name} with {MidiChlorians} MidiChlorians fights with {Weapon.Color} {Weapon.LightsaberType}")]
     //[DebuggerTypeProxy(typeof(SithLordDisplay))]
     public class SithLord : Human, IForceUser

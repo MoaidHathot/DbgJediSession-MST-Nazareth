@@ -7,7 +7,6 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using GalaxyFarFarAway;
-using Microsoft.VisualStudio.DebuggerVisualizers;
 
 namespace MissingDLL
 {
