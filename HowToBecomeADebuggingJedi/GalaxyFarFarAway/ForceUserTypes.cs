@@ -84,7 +84,7 @@ namespace GalaxyFarFarAway
 
         class SithLordDisplay
         {
-            private SithLord _sithLord;
+            private readonly SithLord _sithLord;
 
             public SithLordDisplay(SithLord sithLord)
             {

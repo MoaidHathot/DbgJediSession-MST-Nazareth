@@ -12,9 +12,9 @@ namespace MissingDLL
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            DebuggerDisplay.Program.Main(args);
+            DebuggerDisplay.Program.Main();
 
             Console.WriteLine("Press enter to quit.");
             Console.ReadLine();

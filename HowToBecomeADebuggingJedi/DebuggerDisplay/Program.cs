@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -18,21 +16,21 @@ namespace DebuggerDisplay
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             var jedies = new[]
             {
                 new JediKnight("Yoda", 9001, new ForceUserWeapon(LightsaberType.Lightsaber, ConsoleColor.Green)),
                 new JediKnight("Obi-Wan Kenobi", 5000, new ForceUserWeapon(LightsaberType.Lightsaber, ConsoleColor.Cyan)),
                 new JediKnight("Luke Skywalker", 6000, new ForceUserWeapon(LightsaberType.Lightsaber, ConsoleColor.Cyan)),
-                new JediKnight("Mace Windu", 3000, new ForceUserWeapon(LightsaberType.Lightsaber, ConsoleColor.Magenta)),
+                new JediKnight("Mace Windu", 3000, new ForceUserWeapon(LightsaberType.Lightsaber, ConsoleColor.Magenta))
             };
 
             var siths = new[]
             {
                 new SithLord("Darth Vader", 15000, new ForceUserWeapon(LightsaberType.Lightsaber, ConsoleColor.Red), "Cool Voice", "Swag"),
                 new SithLord("Darth Maul", 7000, new ForceUserWeapon(LightsaberType.DoubleLightsaber, ConsoleColor.Red)),
-                new SithLord("Kylo Ren", 6500, new ForceUserWeapon(LightsaberType.CrossgaurdLightsaber, ConsoleColor.Red), "Freeze layzer rays", "Be stupid"),
+                new SithLord("Kylo Ren", 6500, new ForceUserWeapon(LightsaberType.CrossgaurdLightsaber, ConsoleColor.Red), "Freeze layzer rays", "Be stupid")
             };
 
             var forceUsers = jedies.Concat<IForceUser>(siths).ToList();
@@ -55,7 +53,7 @@ namespace DebuggerDisplay
                 Height = 300
             };
 
-            var colorsMap = new Dictionary<ConsoleColor, string>()
+            var colorsMap = new Dictionary<ConsoleColor, string>
             {
                 [ConsoleColor.Cyan] = "CyanLightsaber.png",
                 [ConsoleColor.Green] = "GreenLightsaber.jpg",
@@ -101,7 +99,7 @@ namespace DebuggerDisplay
                 Height = 300
             };
 
-            var nameDictionary = new Dictionary<string, string>()
+            var nameDictionary = new Dictionary<string, string>
             {
                 ["Yoda"] = "Yoda.jpg",
                 ["Obi-Wan Kenobi"] = "ObiWan.jpg",
@@ -109,7 +107,7 @@ namespace DebuggerDisplay
                 ["Mace Windu"] = "MaceWindu.jpg",
                 ["Darth Vader"] = "DarthVader.png",
                 ["Darth Maul"] = "DarthMaul.jpg",
-                ["Kylo Ren"] = "KyloRen.jpg",
+                ["Kylo Ren"] = "KyloRen.jpg"
             };
 
             if (nameDictionary.ContainsKey(human.Name))
