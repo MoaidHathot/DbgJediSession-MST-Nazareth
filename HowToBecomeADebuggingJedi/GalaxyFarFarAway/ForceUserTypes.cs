@@ -36,7 +36,7 @@ namespace GalaxyFarFarAway
     }
 
     [Serializable]
-    [DebuggerDisplay("{Name}")]
+    //[DebuggerDisplay("{Name}")]
     public class Human
     {
         public string Name { get; }
@@ -64,9 +64,9 @@ namespace GalaxyFarFarAway
         }
     }
 
+    //[DebuggerTypeProxy(typeof(SithLordDisplay))]
     [Serializable]
     [DebuggerDisplay("Sith Lord {Name} with {MidiChlorians} MidiChlorians fights with {Weapon.Color} {Weapon.LightsaberType}")]
-    //[DebuggerTypeProxy(typeof(SithLordDisplay))]
     public class SithLord : Human, IForceUser
     {
         public int MidiChlorians { get; }
