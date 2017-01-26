@@ -51,10 +51,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DebuggerDisplay\DebuggerDisplay.csproj">
-      <Project>{22a3919c-4957-4d77-9209-4556e9494e0d}</Project>
-      <Name>DebuggerDisplay</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GalaxyFarFarAway\GalaxyFarFarAway.csproj">
       <Project>{0AE9B43C-C2FF-4B57-90B8-9433926DAD44}</Project>
       <Name>GalaxyFarFarAway</Name>
