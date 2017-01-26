@@ -1,4 +1,5 @@
-﻿using System;
+﻿//May the force be with you
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -14,9 +15,12 @@ using Microsoft.VisualStudio.DebuggerVisualizers;
 
 #region Debugger Display Attributes
 [assembly: DebuggerDisplay("{Color} {LightsaberType}", Target = typeof(ForceUserWeapon), Name = "{LightsaberType}")]
- [assembly: DebuggerDisplay("Jedi {Name} with {MidiChlorians} MidiChlorians fights with {Weapon.Color} {Weapon.LightsaberType}", Target = typeof(JediKnight))]
- [assembly: DebuggerDisplay("Sith Lord {Name} with {MidiChlorians} MidiChlorians fights with {Weapon.Color} {Weapon.LightsaberType}", Target = typeof(SithLord))]
- [assembly: DebuggerDisplay("{Name}", Target = typeof(Human))]
+[assembly: DebuggerDisplay("Jedi {Name} with {MidiChlorians} MidiChlorians fights with {Weapon.Color} {Weapon.LightsaberType}", Target = typeof(JediKnight))]
+[assembly: DebuggerDisplay("Sith Lord {Name} with {MidiChlorians} MidiChlorians fights with {Weapon.Color} {Weapon.LightsaberType}", Target = typeof(SithLord))]
+[assembly: DebuggerDisplay("{Name}", Target = typeof(Human))]
+
+[assembly: DebuggerVisualizer(typeof(LightsaberVisualizer), typeof(VisualizerObjectSource), Target = typeof(ForceUserWeapon), Description = "Lightsaber weapon")]
+[assembly: DebuggerVisualizer(typeof(HumanVisualizer), typeof(VisualizerObjectSource), Target = typeof(Human), Description = "Force User")]
 #endregion Debugger Display Attributes
 
 namespace GalaxyFarFarAway
@@ -140,6 +144,9 @@ namespace GalaxyFarFarAway
 
             //Parallel.Invoke(forceUsers.Select<IForceUser, Action>(user => () => Show(user.MidiChlorians)).ToArray());
             #endregion Multithreading
+
+            Console.WriteLine("Press enter to quit.");
+            Console.ReadLine();
         }
 
         #region BreakPoints      
@@ -169,90 +176,6 @@ namespace GalaxyFarFarAway
             }
         }
         #endregion BreakPoints
-
-        #region DebuggerDisplay Visualizers
-        public class LightsaberVisualizer : DialogDebuggerVisualizer
-        {
-            protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
-            {
-                var weapon = (ForceUserWeapon)objectProvider.GetObject();
-
-                var window = new Window
-                {
-                    Title = $"{weapon.Color} {weapon.LightsaberType}",
-                    Width = 400,
-                    Height = 300
-                };
-
-                var colorsMap = new Dictionary<ConsoleColor, string>
-                {
-                    [ConsoleColor.Cyan] = "CyanLightsaber.png",
-                    [ConsoleColor.Green] = "GreenLightsaber.jpg",
-                    [ConsoleColor.Magenta] = "PurpleLightsaber.png",
-                    [ConsoleColor.Red] = "RedLightsaber.png"
-                };
-
-                string imageName = null;
-
-                switch (weapon.LightsaberType)
-                {
-                    case LightsaberType.Lightsaber:
-                        imageName = colorsMap[weapon.Color];
-                        break;
-                    case LightsaberType.CrossgaurdLightsaber:
-                        imageName = "RedCrossgaurdLightsaber.png";
-                        break;
-                    case LightsaberType.DoubleLightsaber:
-                        imageName = "RedDoubleLightsaber.png";
-                        break;
-                }
-
-                if (null != imageName)
-                {
-                    window.Background = new ImageBrush(new BitmapImage(new Uri($@"pack://application:,,,/{typeof(LightsaberVisualizer).Assembly.GetName().Name};component/Images/{imageName}")));
-                    window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-                    window.ShowDialog();
-                }
-            }
-        }
-
-        public class HumanVisualizer : DialogDebuggerVisualizer
-        {
-            protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
-            {
-                var human = (Human)objectProvider.GetObject();
-
-                var window = new Window
-                {
-                    Title = human.Name,
-                    Width = 400,
-                    Height = 300
-                };
-
-                var nameDictionary = new Dictionary<string, string>
-                {
-                    ["Yoda"] = "Yoda.jpg",
-                    ["Obi-Wan Kenobi"] = "ObiWan.jpg",
-                    ["Luke Skywalker"] = "LukeSkywalker.jpg",
-                    ["Mace Windu"] = "MaceWindu.jpg",
-                    ["Darth Vader"] = "DarthVader.png",
-                    ["Darth Maul"] = "DarthMaul.jpg",
-                    ["Kylo Ren"] = "KyloRen.jpg"
-                };
-
-                if (nameDictionary.ContainsKey(human.Name))
-                {
-                    var name = nameDictionary[human.Name];
-
-                    window.Background = new ImageBrush(new BitmapImage(new Uri($@"pack://application:,,,/{typeof(HumanVisualizer).Assembly.GetName().Name};component/Images/{name}")));
-                    window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-                    window.ShowDialog();
-                }
-            }
-        }
-        #endregion Debuggerdisplay Visualizers
 
         #region Multithreading
         static async Task TrainMultiThreading(IForceUser user)
@@ -303,4 +226,88 @@ namespace GalaxyFarFarAway
         }
         #endregion Multithreading
     }
+
+    #region DebuggerDisplay Visualizers
+    public class LightsaberVisualizer : DialogDebuggerVisualizer
+    {
+        protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
+        {
+            var weapon = (ForceUserWeapon)objectProvider.GetObject();
+
+            var window = new Window
+            {
+                Title = $"{weapon.Color} {weapon.LightsaberType}",
+                Width = 400,
+                Height = 300
+            };
+
+            var colorsMap = new Dictionary<ConsoleColor, string>
+            {
+                [ConsoleColor.Cyan] = "CyanLightsaber.png",
+                [ConsoleColor.Green] = "GreenLightsaber.jpg",
+                [ConsoleColor.Magenta] = "PurpleLightsaber.png",
+                [ConsoleColor.Red] = "RedLightsaber.png"
+            };
+
+            string imageName = null;
+
+            switch (weapon.LightsaberType)
+            {
+                case LightsaberType.Lightsaber:
+                    imageName = colorsMap[weapon.Color];
+                    break;
+                case LightsaberType.CrossgaurdLightsaber:
+                    imageName = "RedCrossgaurdLightsaber.png";
+                    break;
+                case LightsaberType.DoubleLightsaber:
+                    imageName = "RedDoubleLightsaber.png";
+                    break;
+            }
+
+            if (null != imageName)
+            {
+                window.Background = new ImageBrush(new BitmapImage(new Uri($@"pack://application:,,,/{typeof(LightsaberVisualizer).Assembly.GetName().Name};component/Images/{imageName}")));
+                window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+                window.ShowDialog();
+            }
+        }
+    }
+
+    public class HumanVisualizer : DialogDebuggerVisualizer
+    {
+        protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
+        {
+            var human = (Human)objectProvider.GetObject();
+
+            var window = new Window
+            {
+                Title = human.Name,
+                Width = 400,
+                Height = 300
+            };
+
+            var nameDictionary = new Dictionary<string, string>
+            {
+                ["Yoda"] = "Yoda.jpg",
+                ["Obi-Wan Kenobi"] = "ObiWan.jpg",
+                ["Luke Skywalker"] = "LukeSkywalker.jpg",
+                ["Mace Windu"] = "MaceWindu.jpg",
+                ["Darth Vader"] = "DarthVader.png",
+                ["Darth Maul"] = "DarthMaul.jpg",
+                ["Kylo Ren"] = "KyloRen.jpg"
+            };
+
+            if (nameDictionary.ContainsKey(human.Name))
+            {
+                var name = nameDictionary[human.Name];
+
+                window.Background = new ImageBrush(new BitmapImage(new Uri($@"pack://application:,,,/{typeof(HumanVisualizer).Assembly.GetName().Name};component/Images/{name}")));
+                window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+                window.ShowDialog();
+            }
+        }
+    }
+    #endregion Debuggerdisplay Visualizers
 }
